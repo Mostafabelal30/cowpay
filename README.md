@@ -6,7 +6,7 @@ npm install --save cowpay
 
 ## Functions
 
-###chargeRequestcc
+##chargeRequestcc
 
 chargeRequestcc(params,card_token, hash)
 
@@ -33,7 +33,7 @@ params example
         }
 
 
-###chargeRequest
+##chargeRequest
 
 chargeRequest(params,hash)
 
@@ -52,7 +52,7 @@ params
             signature:sha256(params.merchant_code+params.merchant_reference_id+params.customer_merchant_profile_id+params.payment_method+params.amount+hash),
         }
 
-###generateCardToken
+##generateCardToken
 
 generateCardToken(params)
 
@@ -70,11 +70,11 @@ params example
     "customer_merchant_profile_id":"777777"
 }
 
-###getPaymentStatus
+##getPaymentStatus
 
 getPaymentStatus(merchant_code, merchant_reference_id,hash)
   
-###payWithccToken
+##payWithccToken
 
 payWithccToken(params,hash)
 
