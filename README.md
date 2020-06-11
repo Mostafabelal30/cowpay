@@ -31,7 +31,7 @@ params example
             description: params.description,
             signature:sha256(params.merchant_code+params.merchant_reference_id+params.customer_merchant_profile_id+params.payment_method+params.amount+card_token+hash),
         }
-
+    ```
 
 ##ChargeRequest
 
@@ -51,6 +51,8 @@ params
             currency_code:params.currency_code,
             signature:sha256(params.merchant_code+params.merchant_reference_id+params.customer_merchant_profile_id+params.payment_method+params.amount+hash),
         }
+    ```
+
 
 ##GenerateCardToken
 
@@ -69,11 +71,13 @@ params example
     "cvv":"123",
     "customer_merchant_profile_id":"777777"
 }
+    ```
 
 ##GetPaymentStatus
 
 getPaymentStatus(merchant_code, merchant_reference_id,hash)
-  
+    ```
+
 ##PayWithccToken
 
 payWithccToken(params,hash)
@@ -93,3 +97,4 @@ params contains this parameters
             currency_code:params.currency_code,
             signature:sha256(params.merchant_code+params.merchant_reference_id+params.customer_merchant_profile_id+params.payment_method+params.amount+params.card_token+hash),
             }
+            ```
