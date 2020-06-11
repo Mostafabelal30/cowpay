@@ -1,4 +1,4 @@
-eFuel mobile station application
+cowpay Package
 ===
 
 ## Installation
@@ -12,83 +12,90 @@ Follow the path of "React Native CLI Quickstart", but not the path of "Expo CLI 
 i.e. Click on "React Native CLI Quickstart" to select it. 
 
 ## Installation
-Install node modules
-```
-npm install
-```
+npm install --save cowpay
+    ```
 
-## Installation ios
+## Functions
 
-Install pod files
-```
-cd ios
-pod install
-```
+1- ChargeRequestcc
+chargeRequestcc(params,card_token, hash)
 
-reac-native run-ios
+params example
 
-## Installation android
+{
+            merchant_code: params.merchant_code,
+            merchant_reference_id: params.merchant_reference_id,
+            payment_method: params.payment_method,
+            customer_merchant_profile_id: params.customer_merchant_profile_id,
+            card_number: params.card_number,
+            expiry_year: params.expiry_year,
+            expiry_month: params.expiry_month,
+            save_card:params.save_card,
+            cvv: params.cvv,
+            customer_name: params.customer_name,
+            customer_mobile: params.customer_mobile,
+            customer_email: params.customer_email,
+            amount:params.amount ,
+            currency_code: params.currency_code,
+            charge_items:params.charge_items ,
+            description: params.description,
+            signature:sha256(params.merchant_code+params.merchant_reference_id+params.customer_merchant_profile_id+params.payment_method+params.amount+card_token+hash),
+        }
+2- ChargeRequest
+chargeRequest(params,hash)
 
-reac-native run-android
+params
 
+    {
+            merchant_code: params.merchant_code,
+            merchant_reference_id:params.merchant_reference_id,
+            customer_merchant_profile_id:params.customer_merchant_profile_id,
+            customer_name:params.customer_name,
+            customer_mobile: params.customer_mobile,
+            customer_email:params.customer_email,
+            payment_method:params.payment_method,
+            amount:params.amount,
+            currency_code:params.currency_code,
+            signature:sha256(params.merchant_code+params.merchant_reference_id+params.customer_merchant_profile_id+params.payment_method+params.amount+hash),
+        }
+3- GenerateCardToken
+   
+generateCardToken(params)
 
+params example 
 
-## Libraries
+{
+    "merchant_code":"GIu45k8D5z",
+    "customer_name":"example",
+    "customer_mobile":"01234567891",
+    "customer_email":"example@gmail.com",
+    "card_number":"4005550000000001",
+    "expiry_year":"21",
+    "expiry_month":"05",
+    "cvv":"123",
+    "customer_merchant_profile_id":"777777"
+}
 
-1- react-native-localization
-    handle change langauge
+4- GetPaymentStatus
+  getPaymentStatus(merchant_code, merchant_reference_id,hash)
 
-2- react-native-restart
-   restart app when change langauge
+5- PayWithccToken
 
-3- redux & redux-thunk & react-redux
-   handle shared state management
+    payWithccToken(params,hash)
 
-4- react-navigation
-  handle navigations between screens and routes
+    params contains this parameters
 
-5- react-native-qr-scanner
-   scan and read QR and get data from QR
+       {
+            merchant_code: params.merchant_code,
+            merchant_reference_id:params.merchant_reference_id,
+            customer_merchant_profile_id:params.customer_merchant_profile_id,
+            customer_name:params.customer_name,
+            customer_mobile: params.customer_mobile,
+            customer_email:params.customer_email,
+            payment_method:params.payment_method,
+            card_token:params.card_token,
+            amount:params.amount,
+            currency_code:params.currency_code,
+            signature:sha256(params.merchant_code+params.merchant_reference_id+params.customer_merchant_profile_id+params.payment_method+params.amount+params.card_token+hash),
+            }
 
-6- react-native-smooth-pincode-input & react-native-confirmation-code-field
-  show and handle plate number and confirmation code
-
-7- routes or navigation
-   Contains all stacks and tabs navigator
- 
-8- react-native-flash-message & react-native-snackbar
-      show error and success messages
-
-
-## Folders Structure
-
-1- action
-    Contain all actions 
-
-2- reducers
-   Contain all reducers 
-
-3- redux
-   Contain store and root reducer and index for actions
-
-4- pages or screens or modules
-  Contains all modules screens in application
-
-5- strings
-   For arabic and english language
-
-6- services
-  Contains all backend api calls 
-
-7- routes or navigation
-   Contains all stacks and drawer navigator
- 
-8- assets
-  Contains fonts ,icons ,images folder
-
-9- components
- Contains all shared components in all screens 
-Ex: button , textinput 
-
-10- helpers or utils
-    Contains all global functions and scaling for styles
